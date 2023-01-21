@@ -7,7 +7,6 @@ body {
   height: 90vh;
   justify-content: center;
   align-items: center;
-
 }
 #container {
   display: flex;
@@ -31,20 +30,24 @@ body {
 
 .mainrow {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 20px;
 }
 .mainbox {
   display: flex;
-  padding: 30px;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 150px;
+  height: 80px;
+  font-size: 30px;
+  font-weight: 500;
 }
 .box {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
   border-radius: 50px;
   width: 70px;
   height: 70px;
@@ -54,7 +57,7 @@ body {
 
 .row {
   display: flex;
-  gap: 10px;
+  justify-content: space-around;
 }
 
 .boxes {
@@ -63,7 +66,14 @@ body {
   gap: 15px;
 }
 #screen {
+  display: flex;
   border: 2px solid seagreen;
+  background-color: #f8f3f3;
   border-radius: 30px;
   height: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 10px;
 }
