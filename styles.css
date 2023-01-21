@@ -1,29 +1,45 @@
-body{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#container{
- display: flex;
- border: 2px solid red;
- margin: 100px;
- justify-content: center;
- align-items: center;
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#calculator{
-    border: 2px solid blue;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    padding: 60px;
-    padding-left: 60px;
-    padding-right: 60px;
-    gap: 30px;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid red;
+  justify-content: center;
+  align-items: center;
 }
 
-.box{
+#calculator {
+  border: 2px solid blue;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  gap: 20px;
+}
+
+.mainrow {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.mainbox {
+  display: flex;
+  padding: 30px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,19 +51,18 @@ body{
   font-weight: 500;
 }
 
-.row{
-    display: flex;
-    gap: 10px;
+.row {
+  display: flex;
+  gap: 10px;
 }
 
-.boxes{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-#screen{
-    border: 2px solid seagreen;
-    border-radius: 30px;
-    height: 150px;
-
+#screen {
+  border: 2px solid seagreen;
+  border-radius: 30px;
+  height: 100px;
 }
