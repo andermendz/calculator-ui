@@ -1,5 +1,5 @@
 body{
-    padding: 90px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,18 +17,22 @@ body{
     border-radius: 50px;
     display: flex;
     flex-direction: column;
-    padding: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 60px;
+    padding-left: 60px;
+    padding-right: 60px;
     gap: 30px;
 }
 
 .box{
   display: flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid red;
-  border-radius: 30px;
-  width: 50px;
-  height: 50px;
+  border-radius: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .row{
@@ -44,6 +48,6 @@ body{
 #screen{
     border: 2px solid seagreen;
     border-radius: 30px;
-    height: 100px;
+    height: 150px;
 
 }
