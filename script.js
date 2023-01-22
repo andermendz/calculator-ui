@@ -10,8 +10,8 @@
 
 // TODO - TO SOLVE
 
-// decimal just once
-// evaluators just once
+// decimal just once set and disable the decimals at the beginning and when the number is pushed restore
+// evaluators just once 
 
 const buttons = document.querySelectorAll("button");
 const evaluators = document.querySelectorAll(".evaluator");
