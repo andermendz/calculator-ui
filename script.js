@@ -49,10 +49,9 @@ let numb = num.join("").toString();
 
 function numf() {
   NumButtons.forEach((Nb) => {
+   
     function clicked() {
-      if (operation.length > 0) {
-        dec.addEventListener("click", clicked);
-      }
+
       console.log(operation);
       calc();
       if (operation.length == 1) {
@@ -68,10 +67,6 @@ function numf() {
         (screen.textContent = operation.join(" ").toString() + " " + numb)
       );
 
-      if (Nb.textContent == ".") {
-        console.log("sasa");
-        dec.removeEventListener("click", clicked);
-      }
     }
 
     Nb.addEventListener("click", clicked);
