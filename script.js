@@ -25,21 +25,39 @@ del.addEventListener("click", () => {
 
 numf();
 evalf();
+keyboard();
 
 let numb = num.join("").toString();
 
 let dotI = 0;
 
+function keyboard() {
+  window.addEventListener("keydown", (e) => {
+    const foundbtn = Array.from(NumButtons).findIndex(
+      (n) => n.textContent == e.key
+    );
+
+    if (foundbtn != -1) {
+      NumButtons[foundbtn].click();
+    }
+  });
+
+  window.addEventListener("keydown", (ev) => {
+    if (ev.key == "Enter") {
+      console.log("enter pressed");
+      equal.click();
+    }
+    const foundev = Array.from(evaluators).findIndex(
+      (evaluator) => evaluator.textContent == ev.key
+    );
+    if (foundev != -1) {
+      evaluators[foundev].click();
+    }
+  });
+}
+
 function numf() {
-
-  window.addEventListener("keydown",(e)=>{
-    const foundbtn = Array.from(NumButtons).findIndex(n => n.textContent == e.key)
-    NumButtons[foundbtn].click()
-  })
-  
   NumButtons.forEach((Nb) => {
-
-    
     function clicked() {
       calc();
       if (operation.length == 1) {
@@ -50,7 +68,6 @@ function numf() {
       }
 
       num.push(Nb.textContent);
-
 
       if (dotI == 1 && Nb.textContent == ".") {
         num.splice(num.length - 1, 1);
@@ -92,12 +109,10 @@ function evalf() {
 equal.addEventListener("click", () => {
   if (operation.length == 0) {
     screen.textContent = numb;
-
   } else {
     screen.textContent = result;
     operation.push(numb);
     calc();
-
   }
 });
 
@@ -109,7 +124,7 @@ function calc() {
       result = Number(operation[0]) - Number(operation[2]);
     } else if (operation[1] == "/") {
       result = Number(operation[0]) / Number(operation[2]);
-    } else if (operation[1] == "X") {
+    } else if (operation[1] == "*") {
       result = Number(operation[0]) * Number(operation[2]);
     }
 
