@@ -1,18 +1,3 @@
-//The first operation with start a empty array
-// the first operation will use 3 elements
-//
-// 1st element -- first number
-// 2nd element -- evaluator substraction/ multiplication that will be used to define the kind of operation
-// 3rd element -- second number
-
-// after the first operation the result will took the place
-// of the first element and everything else will be processed as before
-
-// TODO - TO SOLVE
-
-// decimal just once set and disable the decimals at the beginning and when the number is pushed restore
-// evaluators just once
-
 const buttons = document.querySelectorAll("button");
 const evaluators = document.querySelectorAll(".evaluator");
 const NumButtons = document.querySelectorAll(".digit");
@@ -86,14 +71,20 @@ function numf() {
 function evalf() {
   evaluators.forEach((eva) => {
     eva.addEventListener("click", () => {
+      if (operation.length == 2 && numb == "") {
+        operation[1] = eva.textContent;
+        operation.length = 1;
+      }
       dotI = 0;
       operation.push(numb);
+
       calc();
+
       screen.textContent = operation.join(" ").toString();
       num.length = 0;
       operation[1] = eva.textContent;
-
       screen.textContent = operation.join(" ").toString();
+      console.log(operation.length);
     });
   });
 }
@@ -122,6 +113,8 @@ function calc() {
     } else if (operation[1] == "X") {
       result = Number(operation[0]) * Number(operation[2]);
     }
+
+    result = Math.round(result * 100) / 100;
 
     screen.textContent = operation.join(" ").toString();
     console.log(result);
