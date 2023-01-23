@@ -44,8 +44,9 @@ function keyboard() {
 
   window.addEventListener("keydown", (ev) => {
     if (ev.key == "Enter") {
-      console.log("enter pressed");
       equal.click();
+    } else if (ev.key == "Backspace"){
+      del.click();
     }
     const foundev = Array.from(evaluators).findIndex(
       (evaluator) => evaluator.textContent == ev.key
@@ -59,6 +60,7 @@ function keyboard() {
 function numf() {
   NumButtons.forEach((Nb) => {
     function clicked() {
+      Nb.classList.add("pressed");
       calc();
       if (operation.length == 1) {
         num.length = 0;
@@ -78,6 +80,9 @@ function numf() {
 
       numb = num.join("").toString();
       screen.textContent = operation.join(" ").toString() + " " + numb;
+      setTimeout(() => {
+        Nb.classList.remove("pressed");
+      }, 200);
     }
 
     Nb.addEventListener("click", clicked);
@@ -87,6 +92,7 @@ function numf() {
 function evalf() {
   evaluators.forEach((eva) => {
     eva.addEventListener("click", () => {
+      eva.classList.add("pressed");
       if (operation.length == 2 && numb == "") {
         operation[1] = eva.textContent;
         operation.length = 1;
@@ -102,6 +108,9 @@ function evalf() {
       operation[1] = eva.textContent;
       screen.textContent = operation.join(" ").toString();
       numb = "";
+      setTimeout(() => {
+        eva.classList.remove("pressed");
+      }, 200);
     });
   });
 }
