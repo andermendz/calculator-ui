@@ -2,16 +2,27 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 body {
   display: flex;
   height: 90vh;
   justify-content: center;
   align-items: center;
-}
+  background: linear-gradient(189deg, #efefef, #6264ff, #efefef);
+  background-size: 600% 600%;
+  animation: GradientAnimation 10s ease infinite;
+  }
+  
+  @keyframes GradientAnimation {
+  0%{background-position: 0% 2%}
+  50%{background-position: 100% 98%}
+  100%{background-position:0% 2%}
+  }
+
 #container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+ 
   border: 2px solid red;
   justify-content: center;
   align-items: center;
@@ -26,6 +37,8 @@ body {
   padding-left: 40px;
   padding-right: 40px;
   gap: 20px;
+  
+  background-color: #efefef;
 }
 
 .mainrow {
@@ -70,10 +83,10 @@ body {
   border: 2px solid seagreen;
   background-color: #f8f3f3;
   border-radius: 30px;
-  height: 100px;
+  height: 80px;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 33px;
+  font-weight: 700;
   padding: 10px;
 }
