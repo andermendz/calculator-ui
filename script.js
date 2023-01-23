@@ -11,13 +11,12 @@
 // TODO - TO SOLVE
 
 // decimal just once set and disable the decimals at the beginning and when the number is pushed restore
-// evaluators just once 
+// evaluators just once
 
 const buttons = document.querySelectorAll("button");
 const evaluators = document.querySelectorAll(".evaluator");
 const NumButtons = document.querySelectorAll(".digit");
 const equal = document.querySelector(".equal");
-const dec = document.querySelector(".dec");
 const screen = document.querySelector("#screen");
 const del = document.querySelector("#del");
 const cle = document.querySelector("#cle");
@@ -47,26 +46,37 @@ evalf();
 
 let numb = num.join("").toString();
 
+let dotI = 0;
+
 function numf() {
   NumButtons.forEach((Nb) => {
-   
     function clicked() {
-
-      console.log(operation);
       calc();
       if (operation.length == 1) {
         num.length = 0;
         operation.length = 0;
         screen.textContent = operation.join(" ").toString();
+        dotI = 0;
       }
+
       num.push(Nb.textContent);
+
+      console.log(dotI);
+      console.log(num.length);
+
+      if (dotI == 1 && Nb.textContent == ".") {
+        num.splice(num.length - 1, 1);
+      }
+      if (Nb.textContent == ".") {
+        dotI = 1;
+      }
+
       numb = num.join("").toString();
 
       screen.textContent = operation.join(" ").toString() + " " + numb;
       console.log(
         (screen.textContent = operation.join(" ").toString() + " " + numb)
       );
-
     }
 
     Nb.addEventListener("click", clicked);
@@ -76,19 +86,14 @@ function numf() {
 function evalf() {
   evaluators.forEach((eva) => {
     eva.addEventListener("click", () => {
+      dotI = 0;
       operation.push(numb);
       calc();
-      console.log(operation);
-      console.log(numb);
-      operation.push(numb);
       screen.textContent = operation.join(" ").toString();
       num.length = 0;
       operation[1] = eva.textContent;
 
       screen.textContent = operation.join(" ").toString();
-
-      if ((operation.length = 2)) {
-      }
     });
   });
 }
