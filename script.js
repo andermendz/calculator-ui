@@ -75,6 +75,7 @@ function evalf() {
         operation[1] = eva.textContent;
         operation.length = 1;
       }
+
       dotI = 0;
       operation.push(numb);
 
@@ -85,6 +86,7 @@ function evalf() {
       operation[1] = eva.textContent;
       screen.textContent = operation.join(" ").toString();
       console.log(operation.length);
+      numb = "";
     });
   });
 }
