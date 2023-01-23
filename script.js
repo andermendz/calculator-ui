@@ -1,4 +1,3 @@
-const buttons = document.querySelectorAll("button");
 const evaluators = document.querySelectorAll(".evaluator");
 const NumButtons = document.querySelectorAll(".digit");
 const equal = document.querySelector(".equal");
@@ -11,12 +10,22 @@ const operation = [];
 var result = 0;
 
 cle.addEventListener("click", () => {
+  cle.classList.add("pressed");
+  setTimeout(() => {
+    cle.classList.remove("pressed");
+  }, 200);
+
   operation.length = 0;
   num.length = 0;
   screen.textContent = "";
 });
 
 del.addEventListener("click", () => {
+  del.classList.add("pressed");
+  setTimeout(() => {
+    del.classList.remove("pressed");
+  }, 200);
+
   num.splice(num.length - 1, 1);
 
   screen.textContent =
@@ -45,7 +54,7 @@ function keyboard() {
   window.addEventListener("keydown", (ev) => {
     if (ev.key == "Enter") {
       equal.click();
-    } else if (ev.key == "Backspace"){
+    } else if (ev.key == "Backspace") {
       del.click();
     }
     const foundev = Array.from(evaluators).findIndex(
@@ -61,6 +70,10 @@ function numf() {
   NumButtons.forEach((Nb) => {
     function clicked() {
       Nb.classList.add("pressed");
+      setTimeout(() => {
+        Nb.classList.remove("pressed");
+      }, 200);
+
       calc();
       if (operation.length == 1) {
         num.length = 0;
@@ -80,9 +93,7 @@ function numf() {
 
       numb = num.join("").toString();
       screen.textContent = operation.join(" ").toString() + " " + numb;
-      setTimeout(() => {
-        Nb.classList.remove("pressed");
-      }, 200);
+      console.log(operation)
     }
 
     Nb.addEventListener("click", clicked);
@@ -93,6 +104,10 @@ function evalf() {
   evaluators.forEach((eva) => {
     eva.addEventListener("click", () => {
       eva.classList.add("pressed");
+      setTimeout(() => {
+        eva.classList.remove("pressed");
+      }, 200);
+
       if (operation.length == 2 && numb == "") {
         operation[1] = eva.textContent;
         operation.length = 1;
@@ -100,7 +115,6 @@ function evalf() {
 
       dotI = 0;
       operation.push(numb);
-
       calc();
 
       screen.textContent = operation.join(" ").toString();
@@ -108,9 +122,6 @@ function evalf() {
       operation[1] = eva.textContent;
       screen.textContent = operation.join(" ").toString();
       numb = "";
-      setTimeout(() => {
-        eva.classList.remove("pressed");
-      }, 200);
     });
   });
 }
@@ -127,6 +138,8 @@ equal.addEventListener("click", () => {
 
 function calc() {
   if (operation.length == 3) {
+    console.log(operation)
+
     if (operation[1] == "+") {
       result = Number(operation[0]) + Number(operation[2]);
     } else if (operation[1] == "-") {
