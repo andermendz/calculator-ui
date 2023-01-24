@@ -179,7 +179,12 @@ function calc() {
     } else if (operation[1] == "-") {
       result = Number(operation[0]) - Number(operation[2]);
     } else if (operation[1] == "/") {
-      result = Number(operation[0]) / Number(operation[2]);
+      if(operation[2] == 0){
+        result = undefined
+      } else {
+        result = Number(operation[0]) / Number(operation[2]);
+      }
+
     } else if (operation[1] == "*") {
       result = Number(operation[0]) * Number(operation[2]);
     }
