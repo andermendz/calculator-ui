@@ -164,6 +164,7 @@ function evalf() {
       operation.push(numb);
       calc();
     }
+    num.length = 0;
   });
 }
 
