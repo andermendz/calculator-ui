@@ -6,11 +6,12 @@
 body {
   display: flex;
   height: 90vh;
+  gap: 80px;
   justify-content: center;
   align-items: center;
   background: linear-gradient(189deg, #efefef, #6264ff, #efefef);
   background-size: 600% 600%;
-  animation: GradientAnimation 10s ease infinite;
+  animation: GradientAnimation 5s ease infinite;
   }
   
   @keyframes GradientAnimation {
@@ -24,9 +25,29 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
+#index{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.indexes{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #efefef;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.indeximg{
+  height: 50px;
+}
 #calculator {
   border-radius: 50px;
   display: flex;
