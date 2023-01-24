@@ -37,6 +37,10 @@ del.addEventListener("click", () => {
 
   num.splice(num.length - 1, 1);
 
+  console.log(num)
+  numb = num.join("").toString();
+  console.log(numb)
+
   screen.textContent =
     operation.join(" ").toString() + " " + num.join("").toString();
 });

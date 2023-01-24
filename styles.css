@@ -9,9 +9,9 @@ body {
   gap: 80px;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(189deg, #efefef, #6264ff, #efefef);
+  background: linear-gradient(189deg, #efefef, #6264ff, #ffffff);
   background-size: 600% 600%;
-  animation: GradientAnimation 5s ease infinite;
+  animation: GradientAnimation 20s ease infinite;
   }
   
   @keyframes GradientAnimation {
