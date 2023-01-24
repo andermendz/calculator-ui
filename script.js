@@ -1,3 +1,5 @@
+// DOM selected all the elements in the document
+
 const evaluators = document.querySelectorAll(".evaluator");
 const NumButtons = document.querySelectorAll(".digit");
 const equal = document.querySelector(".equal");
@@ -5,11 +7,17 @@ const screen = document.querySelector("#screen");
 const del = document.querySelector("#del");
 const cle = document.querySelector("#cle");
 
+// declared number, operation and result value
 const num = [];
 const operation = [];
 var result = 0;
 
+
+// added event listener for clear and delete
+
+
 cle.addEventListener("click", () => {
+  // added styles timeout when keys are pressed
   cle.classList.add("pressed");
   setTimeout(() => {
     cle.classList.remove("pressed");
@@ -21,6 +29,7 @@ cle.addEventListener("click", () => {
 });
 
 del.addEventListener("click", () => {
+   // added styles timeout when keys are pressed
   del.classList.add("pressed");
   setTimeout(() => {
     del.classList.remove("pressed");
@@ -32,15 +41,23 @@ del.addEventListener("click", () => {
     operation.join(" ").toString() + " " + num.join("").toString();
 });
 
+
+// called methods for number, evaluators and keyboard listeners
 numf();
 evalf();
 keyboard();
 
+// declared numb which is the same as num but as a string
 let numb = num.join("").toString();
 
+// added dotI counter which counts if there's a dot in the number value
 let dotI = 0;
 
 function keyboard() {
+
+  // added events listener for keys
+  // if the key pressed is equal to a number or evaluator,
+  // the respective one is clicked
   window.addEventListener("keydown", (e) => {
     const foundbtn = Array.from(NumButtons).findIndex(
       (n) => n.textContent == e.key
@@ -51,12 +68,19 @@ function keyboard() {
     }
   });
 
+  // added keydown conditionalss for:
+  //  Enter = equal; Backspace = delete; Espape = clear
+
   window.addEventListener("keydown", (ev) => {
     if (ev.key == "Enter") {
       equal.click();
     } else if (ev.key == "Backspace") {
       del.click();
+    } else if (ev.key == "Escape"){
+      cle.click();
     }
+
+
     const foundev = Array.from(evaluators).findIndex(
       (evaluator) => evaluator.textContent == ev.key
     );
@@ -66,9 +90,11 @@ function keyboard() {
   });
 }
 
+// Numbers box events listeners added
 function numf() {
   NumButtons.forEach((Nb) => {
     function clicked() {
+         // added styles timeout when keys are pressed
       Nb.classList.add("pressed");
       setTimeout(() => {
         Nb.classList.remove("pressed");
@@ -100,6 +126,7 @@ function numf() {
   });
 }
 
+// evaluators event listener added
 function evalf() {
   evaluators.forEach((eva) => {
     eva.addEventListener("click", () => {
@@ -124,18 +151,21 @@ function evalf() {
       numb = "";
     });
   });
+
+  equal.addEventListener("click", () => {
+    if (operation.length == 0) {
+      screen.textContent = numb;
+    } else {
+      screen.textContent = result;
+      operation.push(numb);
+      calc();
+    }
+  });
 }
 
-equal.addEventListener("click", () => {
-  if (operation.length == 0) {
-    screen.textContent = numb;
-  } else {
-    screen.textContent = result;
-    operation.push(numb);
-    calc();
-  }
-});
 
+
+// added calculation method when the operation have 3 elements
 function calc() {
   if (operation.length == 3) {
     console.log(operation)

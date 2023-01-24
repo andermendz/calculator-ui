@@ -22,10 +22,9 @@ body {
 #container {
   display: flex;
   flex-direction: column;
- 
-
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
 #calculator {
@@ -66,7 +65,7 @@ body {
   height: 70px;
   font-size: 30px;
   font-weight: 500;
-  transition: all .2s ease;
+  transition: all .3s ease;
  
 }
 
@@ -95,6 +94,6 @@ body {
 
 .pressed{
   transform: scale(1.2);
-  box-shadow: 0 0 5ASrem #000000;
-
+  background-color: #c2c2c2;
+  
 }
