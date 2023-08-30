@@ -10,5 +10,5 @@ if (v[1] == "+"){
 }else if (v[1] == "-"){
     result = Number(v[0]) - Number(v[2])
 } 
-
+ 
 console.log(result)
